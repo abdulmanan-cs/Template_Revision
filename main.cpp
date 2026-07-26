@@ -1,28 +1,37 @@
 #include <iostream>
-#include "Onlinecourse.h"
-#include "Offlinecourse.h"
+#include "FullTimeEmployee.h"
+#include "PartTimeEmployee.h"
+
 using namespace std;
+
 int main()
 {
-    int weeks, hoursWeek;
-    int months, hoursDay;
-    cout << "Enter Online Course Weeks: ";
-    cin >> weeks;
-    cout << "Enter Hours Per Week: ";
-    cin >> hoursWeek;
-    OnlineCourse online(weeks, hoursWeek);
+    float fixedSalary;
+    int hoursWorked;
+    float hourlyRate;
+
+    cout << "Enter Full-Time Employee Fixed Salary: ";
+    cin >> fixedSalary;
+
+    FullTimeEmployee fullTime(fixedSalary);
+
     cout << endl;
-    cout << "Enter Offline Course Months: ";
-    cin >> months;
-    cout << "Enter Hours Per Day: ";
-    cin >> hoursDay;
-    OfflineCourse offline(months, hoursDay);
+
+    cout << "Enter Part-Time Employee Hours Worked: ";
+    cin >> hoursWorked;
+
+    cout << "Enter Hourly Rate: ";
+    cin >> hourlyRate;
+
+    PartTimeEmployee partTime(hoursWorked, hourlyRate);
+
     cout << endl;
-    cout << "Online Course Duration = "
-         << online.duration()
-         << " Hours" << endl;
-    cout << "Offline Course Duration = "
-         << offline.duration()
-         << " Hours" << endl;
+
+    cout << "Full-Time Employee Salary = "
+         << fullTime.calculateSalary() << endl;
+
+    cout << "Part-Time Employee Salary = "
+         << partTime.calculateSalary() << endl;
+
     return 0;
 }
